@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/size_16dp">
+
+    <ImageView
+        android:id="@+id/deal_list_item_image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        tools:src="@drawable/image_16710656"
+        android:layout_marginRight="@dimen/size_16dp"
+        android:scaleType="fitCenter"/>
+
+
+    <TextView
+        android:id="@+id/deal_list_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        tools:text="@string/app_name"
+        android:layout_alignTop="@id/deal_list_item_image_view"
+        android:layout_toRightOf="@id/deal_list_item_image_view"/>
+
+
+    <View
+        android:id="@+id/titleDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/deal_list_item_title"
+        android:layout_marginTop="@dimen/size_8dp"
+        android:layout_marginBottom="@dimen/size_8dp"
+        android:layout_alignLeft="@id/deal_list_item_title"/>
+
+
+    <TextView
+        android:id="@+id/deal_list_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/deal_list_item_image_view"
+        android:contentDescription="price"
+        tools:text="$9"
+        android:ellipsize="marquee"
+        android:paddingRight="@dimen/size_10dp"/>
+
+
+
+    <Button
+        android:id="@+id/aisle_indicator"
+        android:layout_width="@dimen/size_30dp"
+        android:layout_height="@dimen/size_30dp"
+        android:layout_below="@id/titleDivider"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/holo_red_dark"
+        android:background="@drawable/rounded_button"
+        />
+
+    <TextView
+        android:id="@+id/ship_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/size_3dp"
+        android:layout_marginRight="@dimen/size_5dp"
+
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/aisle_indicator"
+        android:layout_toStartOf="@+id/aisle_indicator"
+        tools:text="Ship or"
+        />
+
+</RelativeLayout>
+
+</layout>

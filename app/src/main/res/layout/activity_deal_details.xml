@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+  <data>
+    <variable
+        name="viewModel"
+        type="com.target.dealbrowserpoc.dealbrowser.ui.dealdetails.DealDetailsActivityViewModel"
+        />
+  </data>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+
+      <TextView
+          android:layout_width="0dp"
+          android:layout_weight=".50"
+          android:padding="10dp"
+          android:layout_height="wrap_content"
+          android:text="add to list"
+          android:gravity="center"
+          style="@style/Base.TextAppearance.AppCompat.Large"
+          android:background="@android:color/darker_gray"
+          />
+
+      <TextView
+          style="@style/Base.TextAppearance.AppCompat.Large"
+          android:gravity="center"
+          android:layout_width="0dp"
+          android:layout_weight=".50"
+          android:layout_height="wrap_content"
+          android:padding="10dp"
+          android:background="@android:color/holo_red_dark"
+          android:text="add to cart"
+          android:textColor="@android:color/white"
+          />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_container"
+        >
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_margin="@dimen/size_20dp">
+
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_400dp"
+            tools:src="@drawable/image_16710656"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/product_sale_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/product_image"
+            tools:text="$ 8.7"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_red_dark"
+            />
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/product_sale_price"
+            tools:text="$ 8.7"
+            android:textColor="@android:color/darker_gray"
+            />
+
+        <TextView
+            android:id="@+id/product_title"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="eiusmod labore voluptate excepteur "
+            android:layout_below="@id/product_sale_price"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:id="@+id/product_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            tools:text="eiusmod labore voluptate excepteur irure tempor duis velit occaecat quis occaecat ut et dolore incididunt officia voluptate qui sint dolor eiusmod et nostrud duis enim dolore culpa consequat quis dolore id magna est nulla nostrud elit ut ipsum do anim esse exercitation proident Lorem do qui eiusmod minim reprehenderit adipisicing sunt nisi veniam pariatur pariatur eiusmod velit reprehenderit laborum tempor consequat laboris elit ut sunt elit do non aute eu deserunt adipisicing dolor esse aliquip dolor amet eiusmod proident nulla reprehenderit exercitation et aliqua adipisicing consectetur pariatur Lorem laboris ullamco sunt pariatur in mollit veniam laboris aute"
+            android:layout_below="@id/product_title"
+            android:paddingBottom="@dimen/size_20dp"/>
+
+
+      </RelativeLayout>
+
+    </ScrollView>
+
+
+  </RelativeLayout>
+</layout>
