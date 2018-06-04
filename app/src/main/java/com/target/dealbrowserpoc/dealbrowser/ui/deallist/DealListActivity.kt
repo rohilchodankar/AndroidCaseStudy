@@ -52,6 +52,11 @@ class DealListActivity : BaseActivity<ActivityDealListBinding, DealListActivityV
         binding.show = it
       }
     })
+    viewModel.errorState.observe(this, Observer {
+      it?.let {
+        binding.error = it
+      }
+    })
     determineDealContentStyle()
   }
 

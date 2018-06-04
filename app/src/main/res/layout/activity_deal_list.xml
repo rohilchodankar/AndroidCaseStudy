@@ -8,6 +8,9 @@
     <variable
         name="show"
         type="Boolean"></variable>
+    <variable
+        name="error"
+        type="Boolean"></variable>
 
     <variable
         name="viewModel"
@@ -35,6 +38,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         ></android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="@string/error"
+        android:textStyle="bold"
+        android:visibility="@{ error ? View.VISIBLE : View.GONE }"
+        />
 
   </FrameLayout>
 

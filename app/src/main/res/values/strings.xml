@@ -7,4 +7,5 @@
   <string name="ship">ship</string>
   <string name="or">or</string>
   <string name="reg">Reg: <strike>%s</strike></string>
+  <string name="error">Sorry,Something went wrong here</string>
 </resources>

@@ -7,6 +7,7 @@ import com.target.dealbrowserpoc.dealbrowser.injection.scope.ActivityScope
 import com.target.dealbrowserpoc.dealbrowser.ui.base.BaseViewModel
 import com.target.dealbrowserpoc.dealbrowser.utils.IRxSchedulers
 import com.target.dealbrowserpoc.dealbrowser.utils.PrefsUtils
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -21,18 +22,26 @@ class DealListActivityViewModel @Inject constructor() : BaseViewModel() {
 
   var dealMetaData : MutableLiveData<DealMetaData> = MutableLiveData()
   var progressIndicatorState : MutableLiveData<Boolean> = MutableLiveData()
+  var errorState : MutableLiveData<Boolean> = MutableLiveData()
 
   fun loadDeals(){
-    showProgressIndicator()
-    addDisposable(service.getDealsList()
-        .subscribeOn(schedulers.io())
-        .observeOn(schedulers.main())
-        .doFinally {  hideProgressIndicator() }
-        .subscribe({
-          dealMetaData.postValue(it)
-        }, {
-
-    }))
+    errorState.postValue(false)
+    if(dealMetaData.value != null){
+       dealMetaData.postValue(dealMetaData.value)
+    } else
+    {
+      showProgressIndicator()
+      addDisposable(service.getDealsList()
+          .subscribeOn(schedulers.io())
+          .observeOn(schedulers.main())
+          .doFinally {  hideProgressIndicator() }
+          .subscribe({
+            dealMetaData.postValue(it)
+          }, {
+              Timber.e(it)
+              errorState.postValue(true)
+          }))
+    }
   }
 
   private fun hideProgressIndicator(){
