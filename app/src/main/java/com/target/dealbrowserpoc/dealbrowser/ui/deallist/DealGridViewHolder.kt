@@ -4,29 +4,20 @@ import android.graphics.Color
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
 import android.text.Spannable
-import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import com.target.dealbrowserpoc.dealbrowser.R.string
 import com.target.dealbrowserpoc.dealbrowser.data.models.Deal
 import com.target.dealbrowserpoc.dealbrowser.databinding.DealGridItemBinding
-import com.target.dealbrowserpoc.dealbrowser.ui.base.BaseViewHolder
+import com.target.dealbrowserpoc.dealbrowser.ui.deallist.DealListAdapter.DealAdapterCallback
 import com.target.dealbrowserpoc.dealbrowser.utils.kotlinExtensions.load
 import com.target.dealbrowserpoc.dealbrowser.utils.kotlinExtensions.makeImageUrlDifferent
 
 /**
  * Created by rohilchodankar on 6/4/18.
  */
-class DealGridViewHolder(binding: DealGridItemBinding) : BaseViewHolder<DealGridItemBinding>(binding)
+class DealGridViewHolder(binding: DealGridItemBinding) : BaseDealViewHolder<DealGridItemBinding>(binding)
 {
-  var ship : SpannableString
-  var or : SpannableString
 
-  init {
-    ship = SpannableString(binding.root.context.getString(string.ship))
-    or = SpannableString(binding.root.context.getString(string.or))
-  }
-
-  fun bindGridData(deal: Deal,dealAdapterCallback : DealListAdapter.DealAdapterCallback?){
+  override fun bindData(deal: Deal, dealAdapterCallback: DealAdapterCallback?) {
     binding.dealListItemTitle.text = deal.title
     binding.dealListItemPrice.text = deal.salePrice?: deal.price
 
@@ -50,5 +41,4 @@ class DealGridViewHolder(binding: DealGridItemBinding) : BaseViewHolder<DealGrid
       }
     }
   }
-
 }

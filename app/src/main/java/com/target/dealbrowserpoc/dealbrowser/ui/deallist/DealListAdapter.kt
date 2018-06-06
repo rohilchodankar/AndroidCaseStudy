@@ -1,7 +1,7 @@
 package com.target.dealbrowserpoc.dealbrowser.ui.deallist
 
+import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -18,12 +18,12 @@ import javax.inject.Inject
  * Created by rohilchodankar on 6/3/18.
  */
 @ActivityScope
-class DealListAdapter @Inject constructor(val prefsUtils: PrefsUtils) : RecyclerView.Adapter<ViewHolder>() {
+class DealListAdapter @Inject constructor(val prefsUtils: PrefsUtils) : RecyclerView.Adapter<BaseDealViewHolder<ViewDataBinding>>() {
 
   var dealList : MutableList<Deal> = ArrayList()
   var dealAdapterCallback : DealAdapterCallback? = null
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseDealViewHolder<ViewDataBinding> {
     return when(prefsUtils.userContentStylePreferences){
       LIST -> DealListViewHolder(
           DealListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -36,10 +36,8 @@ class DealListAdapter @Inject constructor(val prefsUtils: PrefsUtils) : Recycler
 
   override fun getItemCount(): Int = dealList.size
 
-  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    if(holder is DealListViewHolder)
-        holder.bindListData(dealList.get(position),dealAdapterCallback)
-    else (holder as? DealGridViewHolder)?.bindGridData(dealList.get(position),dealAdapterCallback)
+  override fun onBindViewHolder(holder: BaseDealViewHolder<ViewDataBinding>, position: Int) {
+    holder.bindData(dealList.get(position), dealAdapterCallback)
   }
 
   interface DealAdapterCallback {

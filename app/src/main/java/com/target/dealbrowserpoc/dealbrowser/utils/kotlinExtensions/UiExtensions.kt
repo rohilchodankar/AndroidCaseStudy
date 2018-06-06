@@ -29,6 +29,8 @@ fun ImageView.load(url: String, loadOnlyFromCache: Boolean = false, onLoadingFin
   val requestOptions = RequestOptions.placeholderOf(R.drawable.image_16710656)
       .dontTransform()
       .onlyRetrieveFromCache(loadOnlyFromCache)
+      .timeout(30000)
+
   Glide.with(this)
       .load(url)
       .apply(requestOptions)

@@ -80,6 +80,9 @@ dependencies {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
 
+  annotationProcessor deps.glideProcessor
+
+
   // Unit Testing
   testImplementation deps.junit
 

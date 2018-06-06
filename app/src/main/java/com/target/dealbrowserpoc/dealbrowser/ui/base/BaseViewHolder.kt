@@ -7,6 +7,4 @@ abstract class BaseViewHolder<out B : ViewDataBinding>(val binding: B) : Recycle
     binding.root) {
   protected fun context() = binding.root.context
 
-
-
 }
